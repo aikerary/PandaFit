@@ -3,12 +3,14 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 // Import MainSwitch from ./MainSwitch
 import MainSwitch from './MainSwitch';
+import FormContainer from './FormContainer';
 import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <MainSwitch />
+    <FormContainer />
   </React.StrictMode>
 );
 

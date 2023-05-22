@@ -2,10 +2,8 @@
     width: 400px;
     height: 40px;
     text-align: center;
-    position: absolute;
-    left: 50%;
-    top: 15%;
-    transform: translate3D(-50%, -50%, 0);
+    position: relative;
+    top: 10vh;
     will-change: transform;
     z-index: 197;
     cursor: pointer;

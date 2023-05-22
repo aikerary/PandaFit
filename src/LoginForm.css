@@ -1,0 +1,104 @@
+  .login {
+    position: relative;
+    top: 20vh;
+    padding: 40px 50px;
+    max-width: 300px;
+    border-radius: 5px;
+    background: var(--secondary-color);
+    box-shadow: 1px 1px 1px #777;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .login input {
+    width: 100%;
+    display: block;
+    box-sizing: border-box;
+    margin: 10px 0;
+    padding: 14px 12px;
+    font-size: 16px;
+    border-radius: 2px;
+    font-family: Raleway, sans-serif;
+  }
+  
+  .login input[type='text'],
+  .login input[type='password'] {
+    border: 1px solid var(--main-color);
+    transition: 0.2s;
+  }
+  
+  .login input[type='text']:hover,
+  .login input[type='password']:hover {
+    border-color: var(--third-color);
+    outline: none;
+    transition: all 0.2s ease-in-out;
+  }
+  
+  .login input[type='submit'] {
+    border: none;
+    background: var(--main-color);
+    color: var(--secondary-color);
+    font-weight: bold;
+    transition: 0.2s;
+    margin: 20px 0;
+  }
+  
+  .login input[type='submit']:hover {
+    cursor: pointer;
+    background: var(--third-color);
+  }
+  
+  .login h2 {
+    margin: 20px 0 0;
+    color: var(--main-color);
+    font-size: 28px;
+  }
+  
+  .login p {
+    margin-bottom: 40px;
+  }
+  
+  .links {
+    display: space-between;
+    width: 100%;
+    box-sizing: border-box;
+    border-top: 1px solid var(--main-color);
+    margin-bottom: 10px;
+  }
+  
+  .links a {
+    display: table-cell;
+    padding-top: 10px;
+  }
+  
+  .links a:first-child {
+    text-align: left;
+  }
+  
+  .links a:last-child {
+    text-align: right;
+  }
+  
+  .login h2,
+  .login p,
+  .login a {
+    text-align: center;
+  }
+  
+  .login a {
+    text-decoration: none;
+    font-size: 0.9em;
+  }
+  
+  .login a:visited {
+    color: inherit;
+  }
+  
+  .login a:hover {
+    text-decoration: underline;
+  }
+  
+  .login img{
+    width: 125px;
+  }

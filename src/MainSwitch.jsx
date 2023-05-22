@@ -1,5 +1,5 @@
 // Import MainSwitch css
-import './MainSwitch.css';
+import './css/MainSwitch.css';
 import React, { useState } from 'react';
 
 const MainSwitch = () => {

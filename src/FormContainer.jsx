@@ -25,9 +25,7 @@ const FormContainer = () => {
   return (
     // Use main switch component here
     <div>
-    <div className="container">
         <MainSwitch />
-    </div>
       {showLoginForm ? <LoginForm /> : <RegistrationForm />}
     </div>
   );

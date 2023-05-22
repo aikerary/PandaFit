@@ -1,8 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
-// Import MainSwitch from ./MainSwitch
-import MainSwitch from './MainSwitch';
+import './css/index.css';
 import FormContainer from './FormContainer';
 import reportWebVitals from './reportWebVitals';
 

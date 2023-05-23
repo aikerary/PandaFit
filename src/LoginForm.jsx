@@ -9,9 +9,21 @@ const LoginForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Perform login logic here
-    console.log('User Name:', userName);
-    console.log('Password:', password);
+    const isNotZeroLength = userName.length > 0 && password.length > 0;
+    if (isGoodPassword && isGoodUserName && isNotZeroLength) {
+      // Get a class name named forms
+      const forms = document.querySelector('.forms');
+      // Get a class named panning
+      const panning = document.querySelector('.panning');
+      // Remove the class name named on from the forms
+      forms.classList.remove('on');
+      // Add a class name named off to the forms
+      forms.classList.add('off');
+      // Remove the class name named off from the panning
+      panning.classList.remove('off');
+      // Add a class name named on to the panning
+      panning.classList.add('on');
+    }
   };
 
   useEffect(() => {

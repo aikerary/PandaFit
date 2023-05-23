@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import LoginForm from './LoginForm';
 import RegistrationForm from './RegistrationForm';
 import MainSwitch from './MainSwitch';
+import './css/FormContainer.css';
 
 const FormContainer = () => {
   const [showLoginForm, setShowLoginForm] = useState(true);
@@ -24,7 +25,7 @@ const FormContainer = () => {
 
   return (
     // Use main switch component here
-    <div>
+    <div className="forms on">
         <MainSwitch />
       {showLoginForm ? <LoginForm /> : <RegistrationForm />}
     </div>

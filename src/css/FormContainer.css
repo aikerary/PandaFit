@@ -1,0 +1,39 @@
+.forms {
+    font-weight: 900;
+    visibility: hidden;
+    transition: .5s ease-in-out;
+  }
+  
+  .forms.on {
+    animation: jump-in-form 0.5s ease-in-out;
+    visibility: visible;
+  }
+  
+  .forms.off {
+    animation: jump-out-form 0.5s ease-in-out;
+  }
+  
+  @keyframes jump-in-form {
+    from {
+      transform: translateY(50%);
+      opacity: 0;
+      z-index: -1;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+      z-index: 1;
+    }
+  }
+  
+  @keyframes jump-out-form {
+    from {
+      transform: translateY(0);
+      opacity: 1;
+    }
+    to {
+      transform: translateY(50%);
+      opacity: 0;
+    }
+  }
+  

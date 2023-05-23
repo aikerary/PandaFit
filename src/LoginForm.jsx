@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from 'react';
-import './css/Form.css';
+import React, { useState, useEffect } from "react";
+import "./css/Form.css";
 
 const LoginForm = () => {
-  const [userName, setUserName] = useState('');
-  const [password, setPassword] = useState('');
+  const [userName, setUserName] = useState("");
+  const [password, setPassword] = useState("");
   const [isGoodPassword, setIsGoodPassword] = useState(true);
   const [isGoodUserName, setIsGoodUserName] = useState(true);
 
@@ -11,29 +11,33 @@ const LoginForm = () => {
     e.preventDefault();
     const isNotZeroLength = userName.length > 0 && password.length > 0;
     if (isGoodPassword && isGoodUserName && isNotZeroLength) {
-      // Get a class name named forms
-      const forms = document.querySelector('.forms');
-      // Get a class named panning
-      const panning = document.querySelector('.panning');
-      // Remove the class name named on from the forms
-      forms.classList.remove('on');
-      // Add a class name named off to the forms
-      forms.classList.add('off');
-      // Remove the class name named off from the panning
-      panning.classList.remove('off');
-      // Add a class name named on to the panning
-      panning.classList.add('on');
+      animation();
     }
+  };
+
+  const animation = () => {
+    // Get a class name named forms
+    const forms = document.querySelector(".forms");
+    // Get a class named panning
+    const panning = document.querySelector(".panning");
+    // Remove the class name named on from the forms
+    forms.classList.remove("on");
+    // Add a class name named off to the forms
+    forms.classList.add("off");
+    // Remove the class name named off from the panning
+    panning.classList.remove("off");
+    // Add a class name named on to the panning
+    panning.classList.add("on");
   };
 
   useEffect(() => {
     if (password.length === 0) {
       setIsGoodPassword(true);
     }
-    if (password.length>0 && password.length >= 8) {
+    if (password.length > 0 && password.length >= 8) {
       setIsGoodPassword(true);
     }
-    if (password.length >0 && password.length < 8) {
+    if (password.length > 0 && password.length < 8) {
       setIsGoodPassword(false);
     }
   }, [password]);
@@ -43,27 +47,27 @@ const LoginForm = () => {
     if (userName.length === 0) {
       setIsGoodUserName(true);
     }
-    if (userName.length>0 && userName.length >= 5) {
+    if (userName.length > 0 && userName.length >= 5) {
       setIsGoodUserName(true);
     }
-    if (userName.length >0 && userName.length < 5) {
+    if (userName.length > 0 && userName.length < 5) {
       setIsGoodUserName(false);
     }
   }, [userName]);
 
   return (
     <form className="login" onSubmit={handleSubmit}>
-    <div>
-      <img src={require('./assets/pandaicon.svg').default} alt="panda"/>
-    </div>
+      <div>
+        <img src={require("./assets/pandaicon.svg").default} alt="panda" />
+      </div>
       <h2>Welcome, Panda!</h2>
       <p>It's time to fit in!</p>
       {/* If it's good password set a div that has the class error password with the class active */}
-      <div className={`error-password ${!isGoodPassword ? 'on' : 'off'}`}>
+      <div className={`error-password ${!isGoodPassword ? "on" : "off"}`}>
         Password must be at least 8 characters
       </div>
       {/* Do the same but with error username */}
-      <div className={`error-username ${!isGoodUserName ? 'on' : 'off'}`}>
+      <div className={`error-username ${!isGoodUserName ? "on" : "off"}`}>
         Username must be at least 5 characters
       </div>
       <input
@@ -87,4 +91,3 @@ const LoginForm = () => {
 };
 
 export default LoginForm;
-

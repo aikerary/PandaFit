@@ -102,3 +102,124 @@
   .login img{
     width: 125px;
   }
+
+  .error-password {
+    font-weight: 900;
+    visibility: hidden;
+    color: var(--wrong);
+    transition: .5s ease-in-out;
+  }
+  
+  .error-password.on {
+    animation: jump-in 0.5s ease-in-out;
+    visibility: visible;
+  }
+  
+  .error-password.off {
+    animation: jump-out 0.5s ease-in-out;
+    visibility: hidden;
+  }
+  
+  @keyframes jump-in {
+    0% {
+      transform: translateY(12px);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  
+  @keyframes jump-out {
+    0% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(12px);
+      opacity: 0;
+    }
+  }
+
+  .error-username {
+    font-weight: 900;
+    visibility: hidden;
+    color: var(--wrong);
+    transition: .5s ease-in-out;
+  }
+  
+  .error-username.on {
+    animation: jump-in 0.5s ease-in-out;
+    visibility: visible;
+  }
+  
+  .error-username.off {
+    animation: jump-out 0.5s ease-in-out;
+    visibility: hidden;
+  }
+  
+  @keyframes jump-in {
+    0% {
+      transform: translateY(12px);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  
+  @keyframes jump-out {
+    0% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(12px);
+      opacity: 0;
+    }
+  }
+
+  .error-password-match {
+    font-weight: 900;
+    visibility: hidden;
+    color: var(--wrong);
+    transition: .5s ease-in-out;
+  }
+  
+  .error-password-match.on {
+    animation: jump-in 0.5s ease-in-out;
+    visibility: visible;
+  }
+  
+  .error-password-match.off {
+    animation: jump-out 0.5s ease-in-out;
+    visibility: hidden;
+  }
+  
+  @keyframes jump-in {
+    0% {
+      transform: translateY(50px);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  
+  @keyframes jump-out {
+    0% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(50px);
+      opacity: 0;
+    }
+  }
+  
+  
+  
+  

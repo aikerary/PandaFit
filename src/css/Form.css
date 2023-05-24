@@ -145,12 +145,12 @@
   }
   
   .error-password-match.on {
-    animation: jump-in 0.5s ease all;
+    animation: jump-in 0.5s ease-in-out;
     visibility: visible;
   }
   
   .error-password-match.off {
-    animation: jump-out 0.5s ease all;
+    animation: jump-out 0.5s ease-in-out;
     visibility: hidden;
   }
 

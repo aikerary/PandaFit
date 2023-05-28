@@ -8,53 +8,45 @@ const RegistrationForm = () => {
   const [isGoodPassword, setIsGoodPassword] = useState(true);
   const [isGoodUserName, setIsGoodUserName] = useState(true);
   const [isPasswordMatch, setIsPasswordMatch] = useState(true);
-
-  const handleSubmit = (e) => {
+  const [isUsedUserName, setIsUsedUserName] = useState(false);
+  
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    setIsUsedUserName(false);
     const isNotZeroLength = userName.length > 0 && password.length > 0 && repeatPassword.length > 0;
     if (isGoodPassword && isGoodUserName && isPasswordMatch && isNotZeroLength) {
-      animation();
-    }
-  };
+      const registerJSON = {
+        username: userName,
+        password: password,
+        role: "user"
+      };
 
-  // const registerJSON = {
-  //   username: 'john.doe',
-  //   password: 'secretpassword',
-  //   role: 'cliente'
-  // };
-
-  const registerJSON = {
-    username: 'aiker',
-    password: 'secretpassword',
-    role: 'admin'
-  };
-
-  const RegisterRequest = ({ json }) => {
-    useEffect(() => {
-      const registerUser = async () => {
+      const RegisterRequest = async () => {
         try {
           const response = await fetch('https://pandax.onrender.com/register', {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json'
             },
-            body: JSON.stringify(json)
+            body: JSON.stringify(registerJSON)
           });
-  
+      
           const data = await response.json();
           console.log(data); // Imprimir la respuesta en la consola
+          // Manejar la respuesta exitosa aquí
+          animation();
         } catch (error) {
           console.error('Error:', error);
+          // Manejar el error aquí
+          setIsUsedUserName(true);
         }
       };
-  
-      registerUser();
-    }, [json]);
-  
-    return null;
+
+      RegisterRequest();
+    }
   };
 
-  RegisterRequest({ json: registerJSON });
+  
 
   const animation = () => {
     // Get a class name named forms

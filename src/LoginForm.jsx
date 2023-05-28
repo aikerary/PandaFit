@@ -14,18 +14,6 @@ const LoginForm = () => {
       animation();
     }
   };
-
-
-  const LoginJSON = {
-    username: 'john.doe',
-    password: 'secretpassword',
-  };
-
-  const loginJSON2 = {
-    username: 'aiker',
-    password: 'secretpassword',
-  };
-
   const LoginRequest = ({ json }) => {
     useEffect(() => {
       const loginUser = async () => {
@@ -48,12 +36,7 @@ const LoginForm = () => {
       loginUser();
     }, [json]);
   };
-
-  // LoginRequest({ json: LoginJSON });
-  // LoginRequest({ json: loginJSON2 });
   
-  
-
   const animation = () => {
     // Get a class name named forms
     const forms = document.querySelector(".forms");

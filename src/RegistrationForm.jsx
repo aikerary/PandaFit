@@ -34,11 +34,18 @@ const RegistrationForm = () => {
           const data = await response.json();
           console.log(data); // Imprimir la respuesta en la consola
           // Manejar la respuesta exitosa aquí
-          animation();
+          // If the response have the property error
+          if (data.hasOwnProperty('error')) {
+            // If the response have the property error and the value is true
+              // Set isUsedUserName to true
+              setIsUsedUserName(true);
+          }else{
+            // Manejar el error aquí
+            setIsUsedUserName(false);
+            animation();
+          }
         } catch (error) {
           console.error('Error:', error);
-          // Manejar el error aquí
-          setIsUsedUserName(true);
         }
       };
 

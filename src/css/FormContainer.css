@@ -1,16 +1,16 @@
 .forms {
     font-weight: 900;
-    visibility: hidden;
     transition: .5s ease-in-out;
   }
   
-  .forms.on {
+  .forms.on{
     animation: jump-in-form 0.5s ease-in-out;
     visibility: visible;
   }
   
-  .forms.off {
+  .forms.off{
     animation: jump-out-form 0.5s ease-in-out;
+    visibility: hidden;
   }
   
   @keyframes jump-in-form {

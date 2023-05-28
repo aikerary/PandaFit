@@ -17,6 +17,45 @@ const RegistrationForm = () => {
     }
   };
 
+  // const registerJSON = {
+  //   username: 'john.doe',
+  //   password: 'secretpassword',
+  //   role: 'cliente'
+  // };
+
+  const registerJSON = {
+    username: 'aiker',
+    password: 'secretpassword',
+    role: 'admin'
+  };
+
+  const RegisterRequest = ({ json }) => {
+    useEffect(() => {
+      const registerUser = async () => {
+        try {
+          const response = await fetch('https://pandax.onrender.com/register', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(json)
+          });
+  
+          const data = await response.json();
+          console.log(data); // Imprimir la respuesta en la consola
+        } catch (error) {
+          console.error('Error:', error);
+        }
+      };
+  
+      registerUser();
+    }, [json]);
+  
+    return null;
+  };
+
+  RegisterRequest({ json: registerJSON });
+
   const animation = () => {
     // Get a class name named forms
     const forms = document.querySelector(".forms");

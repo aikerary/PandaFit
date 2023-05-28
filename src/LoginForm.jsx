@@ -15,6 +15,45 @@ const LoginForm = () => {
     }
   };
 
+
+  const LoginJSON = {
+    username: 'john.doe',
+    password: 'secretpassword',
+  };
+
+  const loginJSON2 = {
+    username: 'aiker',
+    password: 'secretpassword',
+  };
+
+  const LoginRequest = ({ json }) => {
+    useEffect(() => {
+      const loginUser = async () => {
+        try {
+          const response = await fetch('https://pandax.onrender.com/login', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(json)
+          });
+  
+          const data = await response.json();
+          console.log(data); // Print the response to the console
+        } catch (error) {
+          console.error('Error:', error);
+        }
+      };
+  
+      loginUser();
+    }, [json]);
+  };
+
+  // LoginRequest({ json: LoginJSON });
+  LoginRequest({ json: loginJSON2 });
+  
+  
+
   const animation = () => {
     // Get a class name named forms
     const forms = document.querySelector(".forms");

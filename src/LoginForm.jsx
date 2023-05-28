@@ -11,30 +11,34 @@ const LoginForm = () => {
     e.preventDefault();
     const isNotZeroLength = userName.length > 0 && password.length > 0;
     if (isGoodPassword && isGoodUserName && isNotZeroLength) {
-      animation();
-    }
-  };
-  const LoginRequest = ({ json }) => {
-    useEffect(() => {
-      const loginUser = async () => {
-        try {
-          const response = await fetch('https://pandax.onrender.com/login', {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(json)
-          });
-  
-          const data = await response.json();
-          console.log(data); // Print the response to the console
-        } catch (error) {
-          console.error('Error:', error);
-        }
+      const loginJSON = {
+        username: userName,
+        password: password,
       };
-  
-      loginUser();
-    }, [json]);
+
+      const LoginRequest = async () => {
+        try {
+          const response = await fetch("https://pandax.onrender.com/login", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(loginJSON),
+          });
+
+          const data = await response.json();
+          console.log(data); // Imprimir la respuesta en la consola
+          // Manejar la respuesta exitosa aquí
+          // If the response have the property error
+          if (!data.hasOwnProperty("error")) {
+            animation();
+          }
+        } catch (error) {
+          console.error("Error:", error);
+        }
+      }
+      LoginRequest();
+    }
   };
   
   const animation = () => {

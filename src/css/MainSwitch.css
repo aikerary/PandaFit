@@ -1,4 +1,4 @@
-.switch-button {
+.switch-button.on {
     width: 400px;
     height: 40px;
     text-align: center;
@@ -10,6 +10,23 @@
     transition: 0.3s ease all;
     border: 1px solid var(--secondary-color);
     outline: none;
+    visibility: visible;
+    animation: jump-in 0.5s ease-in-out;
+  } 
+
+  .switch-button.off {
+    visibility: hidden;
+    animation: jump-out 0.5s ease-in-out;
+  } 
+
+  .switch-button.off button{
+      visibility: hidden;
+      animation: jump-out 0.5s ease-in-out;
+  }
+
+  .switch-button.off .switch{
+      visibility: hidden;
+      animation: jump-out 0.5s ease-in-out;
   }
   
   button {
@@ -59,3 +76,24 @@
     color: #151515;
   }
   
+  @keyframes jump-in {
+    0% {
+      transform: translateY(12px);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  
+  @keyframes jump-out {
+    0% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(12px);
+      opacity: 0;
+    }
+  }

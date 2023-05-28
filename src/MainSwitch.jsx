@@ -14,7 +14,7 @@ const MainSwitch = () => {
   };
 
   return (
-    <div className={`switch-button switch-button-case-${activeCase}`}>
+    <div className={`switch-button on switch-button-case-${activeCase}`}>
       <span className="switch" />
       <button className={`left ${activeCase === 'left' ? 'active' : ''}`} onClick={switchLeft}>
         Fit-In

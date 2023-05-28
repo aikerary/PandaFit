@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import Dashboard from "./Dashboard";
 import './css/Form.css';
 
 const RegistrationForm = () => {
@@ -9,6 +10,8 @@ const RegistrationForm = () => {
   const [isGoodUserName, setIsGoodUserName] = useState(true);
   const [isPasswordMatch, setIsPasswordMatch] = useState(true);
   const [isUsedUserName, setIsUsedUserName] = useState(false);
+  const [isLogged, setIsLogged] = useState(false);
+  const [userId, setUserId] = useState('');
   
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -42,6 +45,8 @@ const RegistrationForm = () => {
           }else{
             // Manejar el error aquí
             setIsUsedUserName(false);
+            setIsLogged(true);
+            setUserId(data.userid);
             animation();
           }
         } catch (error) {
@@ -53,21 +58,24 @@ const RegistrationForm = () => {
     }
   };
 
+  useEffect(() => {
+    if (isLogged) {
+      console.log("Logged");
+      const button= document.querySelector(".switch-button");
+      button.classList.remove("on");
+      button.classList.add("off");
+    }
+  }, [isLogged]);
+
   
 
   const animation = () => {
     // Get a class name named forms
     const forms = document.querySelector(".forms");
-    // Get a class named panning
-    const panning = document.querySelector(".panning");
     // Remove the class name named on from the forms
     forms.classList.remove("on");
     // Add a class name named off to the forms
     forms.classList.add("off");
-    // Remove the class name named off from the panning
-    panning.classList.remove("off");
-    // Add a class name named on to the panning
-    panning.classList.add("on");
   };
 
   useEffect(() => {
@@ -106,6 +114,10 @@ const RegistrationForm = () => {
       setIsPasswordMatch(false);
     }
   }, [repeatPassword, password]);
+
+  if (isLogged) {
+    return <Dashboard userId={userId} userName={userName} />;
+  }
   
   return (
     <form className="login" onSubmit={handleSubmit}>

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import Dashboard from "./Dashboard";
 import "./css/Form.css";
 
 const LoginForm = () => {
@@ -6,6 +7,8 @@ const LoginForm = () => {
   const [password, setPassword] = useState("");
   const [isGoodPassword, setIsGoodPassword] = useState(true);
   const [isGoodUserName, setIsGoodUserName] = useState(true);
+  const [isLogged, setIsLogged] = useState(false);
+  const [userId, setUserId] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -30,8 +33,11 @@ const LoginForm = () => {
           console.log(data); // Imprimir la respuesta en la consola
           // Manejar la respuesta exitosa aquí
           // If the response have the property error
+          // Get the userId from the response
+          setUserId(data.userid);
           if (!data.hasOwnProperty("error")) {
             animation();
+            setIsLogged(true);
           }
         } catch (error) {
           console.error("Error:", error);
@@ -44,16 +50,10 @@ const LoginForm = () => {
   const animation = () => {
     // Get a class name named forms
     const forms = document.querySelector(".forms");
-    // Get a class named panning
-    const panning = document.querySelector(".panning");
     // Remove the class name named on from the forms
     forms.classList.remove("on");
     // Add a class name named off to the forms
     forms.classList.add("off");
-    // Remove the class name named off from the panning
-    panning.classList.remove("off");
-    // Add a class name named on to the panning
-    panning.classList.add("on");
   };
 
   useEffect(() => {
@@ -80,6 +80,20 @@ const LoginForm = () => {
       setIsGoodUserName(false);
     }
   }, [userName]);
+
+  useEffect(() => {
+    if (isLogged) {
+      console.log("Logged");
+      const button= document.querySelector(".switch-button");
+      button.classList.remove("on");
+      button.classList.add("off");
+    }
+  }, [isLogged]);
+
+  if (isLogged) {
+    return <Dashboard userId={userId} userName={userName} />;
+  }
+
 
   return (
     <form className="login" onSubmit={handleSubmit}>

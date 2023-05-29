@@ -1,21 +1,33 @@
-import React from 'react';
 import ReactApexChart from 'react-apexcharts';
 
 const Chart = ({ data, xaxis }) => {
   const options = {
     chart: {
-      id: 'basic-line'
+      id: 'basic-line',
+      foreColor: '#ffffff', // Color de las etiquetas y la línea
     },
     xaxis: {
-      categories: xaxis
-    }
+      categories: xaxis,
+      labels: {
+        style: {
+          colors: '#ffffff', // Color de las etiquetas en el eje x
+        },
+      },
+    },
+    yaxis: {
+      labels: {
+        style: {
+          colors: '#ffffff', // Color de las etiquetas en el eje y
+        },
+      },
+    },
   };
 
   const series = [
     {
       name: 'Series 1',
-      data: data
-    }
+      data: data,
+    },
   ];
 
   return (
@@ -26,3 +38,4 @@ const Chart = ({ data, xaxis }) => {
 };
 
 export default Chart;
+

@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "/PandaFit/static/css/main.99033637.css",
-    "main.js": "/PandaFit/static/js/main.84010ae5.js",
+    "main.js": "/PandaFit/static/js/main.38afaaad.js",
     "static/js/787.2c70fd80.chunk.js": "/PandaFit/static/js/787.2c70fd80.chunk.js",
     "static/media/pandaicon.svg": "/PandaFit/static/media/pandaicon.ec5139de1c891d0e768e4a0e5d54ee8e.svg",
     "index.html": "/PandaFit/index.html",
     "main.99033637.css.map": "/PandaFit/static/css/main.99033637.css.map",
-    "main.84010ae5.js.map": "/PandaFit/static/js/main.84010ae5.js.map",
+    "main.38afaaad.js.map": "/PandaFit/static/js/main.38afaaad.js.map",
     "787.2c70fd80.chunk.js.map": "/PandaFit/static/js/787.2c70fd80.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.99033637.css",
-    "static/js/main.84010ae5.js"
+    "static/js/main.38afaaad.js"
   ]
 }

@@ -45,6 +45,7 @@ const Dashboard = (props) => {
         const result = await response.json();
         console.log(result);
         setWeight("");
+        getWeight(); // Actualiza el gráfico después de la petición exitosa
       } else {
         console.log("Error:", response.status);
       }
@@ -53,27 +54,28 @@ const Dashboard = (props) => {
     }
   };
 
-  useEffect(() => {
-    const getWeight = async () => {
-      try {
-        const response = await fetch(
-          `https://pandax.onrender.com/weight/${userId}`
-        );
-        if (response.ok) {
-          const result = await response.json();
-          const { fechas, pesos } = obtenerFechasYPesos(result);
-          setWeightData(pesos);
-          setDateData(fechas);
-          if (result.weight) {
-            setWeight(result.weight);
-          }
-        } else {
-          console.log("Error:", response.status);
+  const getWeight = async () => {
+    try {
+      const response = await fetch(
+        `https://pandax.onrender.com/weight/${userId}`
+      );
+      if (response.ok) {
+        const result = await response.json();
+        const { fechas, pesos } = obtenerFechasYPesos(result);
+        setWeightData(pesos);
+        setDateData(fechas);
+        if (result.weight) {
+          setWeight(result.weight);
         }
-      } catch (error) {
-        console.log("Error getting weight data:", error);
+      } else {
+        console.log("Error:", response.status);
       }
-    };
+    } catch (error) {
+      console.log("Error getting weight data:", error);
+    }
+  };
+
+  useEffect(() => {
     getWeight();
   }, []);
 

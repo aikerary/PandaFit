@@ -35,6 +35,27 @@ const Dashboard = (props) => {
       console.log("Error inserting weight data:", error);
     }
   };
+  useEffect(() => {
+    const getWeight = async () => {
+      try {
+        const response = await fetch(
+          `https://pandax.onrender.com/weight/${userId}`
+        );
+        if (response.ok) {
+          const result = await response.json();
+          console.log(result);
+          if (result.weight) {
+            setWeight(result.weight);
+          }
+        } else {
+          console.log("Error:", response.status);
+        }
+      } catch (error) {
+        console.log("Error getting weight data:", error);
+      }
+    };
+    getWeight();
+  }, []);
     return (
       <div className="dashboard">
         <ul className="navbar">
@@ -58,6 +79,7 @@ const Dashboard = (props) => {
           />
           <button className="weightButton" type="submit">Submit</button>
         </form>
+        <hr></hr>
       </div>
     );
 };

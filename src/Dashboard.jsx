@@ -103,6 +103,7 @@ const Dashboard = (props) => {
         <button className="weightButton" type="submit">Submit</button>
       </form>
       <hr></hr>
+      <h1>Your progress here</h1>
       <Chart data={weightData} xaxis={dateData} />
     </div>
   );

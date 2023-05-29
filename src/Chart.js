@@ -1,7 +1,9 @@
 import ReactApexChart from 'react-apexcharts';
-
 const Chart = ({ data, xaxis }) => {
   const options = {
+    markers: {
+      colors: ['#F44336']
+   },
     chart: {
       id: 'basic-line',
       foreColor: '#ffffff', // Color de las etiquetas y la línea
@@ -25,13 +27,13 @@ const Chart = ({ data, xaxis }) => {
 
   const series = [
     {
-      name: 'Series 1',
+      name: 'Weight (kg)',
       data: data,
     },
   ];
 
   return (
-    <div>
+    <div className='apeChar'>
       <ReactApexChart options={options} series={series} type="line" height={450} />
     </div>
   );

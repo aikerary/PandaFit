@@ -1,6 +1,3 @@
-Aquí tienes el README.md completo en un solo bloque de código Markdown:
-
-```markdown
 # PandaFit
 
 PandaFit is a fitness tracker demo.

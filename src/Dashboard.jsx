@@ -46,15 +46,17 @@ const Dashboard = (props) => {
           </li>
         </ul>
         <hr></hr>
+        <h1>Welcome to your dashboard</h1>
         <form className="weightForm" onSubmit={handleSubmit}>
-          <label htmlFor="weightInput">Weight:</label>
           <input
+            min={0}
             type="number"
             id="weightInput"
+            placeholder="Introduce your weight in kg"
             value={weight}
             onChange={(e) => setWeight(e.target.value)}
           />
-          <button type="submit">Submit</button>
+          <button className="weightButton" type="submit">Submit</button>
         </form>
       </div>
     );
